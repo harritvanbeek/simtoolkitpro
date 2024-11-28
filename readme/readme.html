@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="container">    
+            <h1>Custom template for your stream!</h1>
+            <p>if you looking for custom template for your stream<br>
+            OBS / StreamLaps and you are using SimToolKitPro!!<br>
+            than you need this.</p>
+
+            <h3>How wil it work ?</h3>
+            open 'connection.js' and you see lot of infomation;<br>
+            the most importand are.
+            <ul>
+                <li>Protocol<br>
+                    http protocal; you can change it to https if you using ssl; 
+                </li>
+                <li>schemaURI<br>
+                    your local ip as default if you using other ip change it here!
+                </li>
+                <li>schemaPORT<br>You will find the port in Overlay(beta)  as example 
+                http://localhost:51011/overlay2, the port is in this case : 51011
+                </li>    
+            </ul>
+
+            in the template section you can set true or false<br>
+            to display your current information, in some template`s we have set<br>
+            the values already correct for you; if you wabt to test it is on your self! 
+
+            <hr>
+                <h2>Test here your connection live!</h2>
+                <p>start your Flight simulator and start SimtoolkitPro.<br>
+                to test all values best what you can try is airline flight.</p>
+
+                <p>
+                    for the progressbar you can copy evrything inside progressbas.md and past it over to SimtoolkitPro.<br>
+                    open on the left menubar "streaming" and past it in the section Custom LayOut. Your Done! 
+                </p>
+            <hr>
+
+            <!-- display error when the sim is not connected -->
+            <div class="errorConnect">
+                <div id="noConnection"></div>
+            </div>
+
+            <div class="flightData">
+                <ul>
+                    <li class="gspeed">Groud Speed :<span id="gspeed"></span> KTS</li>
+                    <li class="ias">Indicated AirSpeed : <span id="ias"></span> KTS</li>
+                    <li class="tas">true airspeed <span id="tas"></span> KTS</li>
+                    <li class="spd">Vertical speed <span id="spd"></span> fpm</li>
+                    <li class="altiude">Altiude <span id="altiude"></span> ft</li>
+                    <li class="ete">Time ETE <span id="ete"></span> </li>
+                    <li class="network">Network <span id="network"></span> </li>
+                    <li class="reg">Reg <span id="reg"></span> </li>
+                    <li class="atc">ATC <span id="atc"></span> </li>
+                    <li class="phase">Phase <span id="phase"></span> </li>
+                    <li class="departure">Departure <span id="departure"></span> </li>
+                    <li class="arrivle">Arrivle <span id="arrivle"></span> </li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <h1>Create your own template ?</h1>
+            <p>make new folder and copy the evryting over :</p>
+            <ul>
+                <li>connection.js</li>
+                <li>and copy the snippert from the section flightData in the html file readme.html</li>
+                <li>We use gulp composer, for the css sass</li>
+            </ul>
+        </div>
+
+
+    </body>
+</html>
+
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script  src="./connection.js"></script>
+<script  src="./template.js"></script>

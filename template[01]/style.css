@@ -1,0 +1,51 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+    position: relative;
+    overflow: hidden; 
+}
+
+/* will display only the progressbarr */
+.iframe{
+    position: absolute;
+    border:0px;
+    width: 110%;
+    top : -15px;
+    left : -10px;
+    height: 30px;
+}
+
+/* display all classes are hidden and position on absolute  */
+.gspeed, .ias, .tas, .spd, .altiude, .ete, .network, .reg, .atc, .phase, .departure, .arrivle{
+    display: none;
+    /* position: absolute; */
+}
+
+span{ 
+    color: #3dff03;
+}
+
+/* 
+
+.departure{left : 150px;}
+.arrivle{left : 250px;} 
+
+*/
+
+
+/* display error when the sim is not connected */
+.errorConnect{
+    display: none;
+    width: 100%;
+}
+
+.errorConnect > #noConnection{
+    color: red;
+    font-size: xx-large;
+    text-align: center;
+    text-transform:uppercase;
+    text-decoration: underline;
+    text-shadow: 5px 5px 4px gray;
+    font-weight: bolder;
+}
