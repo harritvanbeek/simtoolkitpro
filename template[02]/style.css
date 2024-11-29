@@ -2,9 +2,6 @@
   src: url("./assets/digital-7.regular.ttf");
   font-family: "digital-clock-font";
 }
-body {
-  background-color: gray;
-}
 
 .profile {
   z-index: 2;
