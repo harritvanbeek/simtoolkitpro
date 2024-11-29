@@ -14,11 +14,11 @@ import browserSync      from 'browser-sync';
 const sass              = gulpSass(dartSass);
        
         //styles
-var     styleDEV		=	"dev/scss/template[01].scss",
+var     styleDEV		=	"dev/scss/template[01].scss", /* changce here the name of your template file */
         styleWatch		=	"dev/scss/**/*.scss",
 		
         //Online folders
-		styleLOC		=	"./template[01]/"		   
+		styleLOC		=	"./template[01]/"	 /* changce here the name of your template directory */	   
 		
 
 function browser_sync(){
@@ -34,7 +34,8 @@ function style(done){
     gulp.src(styleDEV)
         .pipe(sourcemaps.init())
         .pipe(plumber())
-        .pipe( sass({ errorLogToConsole: true, outputStyle: 'compressed'}))
+        /* compressed, or expanded */
+        .pipe( sass({ errorLogToConsole: true, outputStyle: 'expanded'}))
         .on('error', console.error.bind( console ) )
         .pipe( autoprefixer({ browers:['last 2 versions'], cascade:false }))
         .pipe( rename('style.css') )

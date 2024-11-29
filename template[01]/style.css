@@ -1,51 +1,131 @@
-body{
-    padding: 0px;
-    margin: 0px;
-    height: 100vh;
-    position: relative;
-    overflow: hidden; 
+body {
+  padding: 0px;
+  margin: 0px;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-/* will display only the progressbarr */
-.iframe{
-    position: absolute;
-    border:0px;
-    width: 110%;
-    top : -15px;
-    left : -10px;
-    height: 30px;
+.flightData {
+  width: 1920px;
+  height: 80px;
+  /* background-image: url("./assets/template.png"); */
+  background-image: url("./assets/background.png");
+}
+.flightData .flightInfo {
+  color: #3dff03;
+  font-size: 20pt;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+.flightData .data {
+  font-size: 15pt;
+  color: #ffffff;
+  font-weight: bolder;
+  text-align: right;
 }
 
 /* display all classes are hidden and position on absolute  */
-.gspeed, .ias, .tas, .spd, .altiude, .ete, .network, .reg, .atc, .phase, .departure, .arrivle{
-    display: none;
-    /* position: absolute; */
+.gspeed, .ias, .tas, .spd, .altiude, .ete, .network, .callsign, .atc, .phase, .phaseTime, .departure, .arrivle, .map {
+  display: none;
+  position: absolute;
 }
 
-span{ 
-    color: #3dff03;
+.network {
+  left: 200px;
+  width: 125px;
+  top: 10px;
 }
 
-/* 
+.callsign {
+  width: 150px;
+  left: 390px;
+  top: 10px;
+}
 
-.departure{left : 150px;}
-.arrivle{left : 250px;} 
+.departure {
+  width: 170px;
+  left: 600px;
+  top: 10px;
+  text-align: center;
+}
 
-*/
+.phaseTime {
+  width: 285px;
+  height: 70px;
+  top: 5px;
+  left: 820px;
+  /* will display only the progressbarr */
+}
+.phaseTime .phases {
+  text-align: center;
+  font-size: 15pt;
+}
+.phaseTime .progressbar .iframe {
+  position: absolute;
+  border: 0px;
+  width: 100%;
+  top: 30px;
+  height: 10px;
+}
+.phaseTime .time {
+  text-align: center;
+  font-size: 15pt;
+  margin-top: 5px;
+}
 
+.arrivle {
+  top: 10px;
+  left: 1150px;
+  width: 185px;
+}
+.arrivle .data {
+  text-align: left;
+}
+
+.gspeed {
+  top: 10px;
+  left: 1380px;
+  width: 170px;
+}
+.gspeed .data {
+  text-align: left;
+}
+
+.altiude {
+  top: 10px;
+  left: 1600px;
+  width: 170px;
+}
+.altiude .data {
+  text-align: left;
+}
+
+.map {
+  top: 670px;
+  left: 50px;
+  border-radius: 100%;
+  box-shadow: 0 0 10px #3dff03;
+}
+.map .iframe {
+  border: 0px;
+  border-radius: 100%;
+  height: 250px;
+}
 
 /* display error when the sim is not connected */
-.errorConnect{
-    display: none;
-    width: 100%;
+.errorConnect {
+  display: none;
+  width: 100%;
 }
 
-.errorConnect > #noConnection{
-    color: red;
-    font-size: xx-large;
-    text-align: center;
-    text-transform:uppercase;
-    text-decoration: underline;
-    text-shadow: 5px 5px 4px gray;
-    font-weight: bolder;
+.errorConnect > #noConnection {
+  color: red;
+  font-size: xx-large;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-shadow: 5px 5px 4px gray;
+  font-weight: bolder;
 }

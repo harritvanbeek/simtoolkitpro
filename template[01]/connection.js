@@ -8,20 +8,22 @@ let ShowError       =   true; //displays the noConnection as error
 let departure       =   true; //displays the departure
 let arrivle         =   true; //displays the arrivle
 let gspeed          =   true; //displays the ground speed
-let airspeed        =   true; //displays Indicated airspeed
-let trueairspeed    =   true; //displays True airspeed
-let verticalspeed   =   true; //displays Vertical speed
+let airspeed        =   false; //displays Indicated airspeed
+let trueairspeed    =   false; //displays True airspeed
+let verticalspeed   =   false; //displays Vertical speed
 let altiude         =   true; //displays altiude
 let eteTime         =   true; //displays ete Time
 let network         =   true; //displays network
 let registration    =   true; //displays registration
-let atc             =   true; //displays atc
+let atc             =   false; //displays atc
 let phase           =   true; //displays phase
+let progressbar     =   true; //displays progressbar
+let showmap         =   true; //displays map
 
 /* DO NOT CHANGE THIS!! */
 let SimToolKitProURI = Protocol+"://"+schemaURI+":"+schemaPORT+"/simdata";
-let ProgressBar      = Protocol+"://"+schemaURI+":"+schemaPORT+"/overlay";
-
+let ProgressBarURI   = Protocol+"://"+schemaURI+":"+schemaPORT+"/overlay";
+let mapURI           = Protocol+"://"+schemaURI+":"+schemaPORT+"/map";
 
 function flightDate(URI){
     $.ajax({
@@ -37,13 +39,21 @@ function flightDate(URI){
                     if(departure){
                         $(".departure").show();
                         $("#departure").show();
-                        $('#departure').html(data[1].value); // dep;                                
+                        if(data[1].value){
+                            $('#departure').html(data[1].value); // dep;                                
+                        }else{
+                            $('#departure').html("N/A"); // dep;                                
+                        }
                     }
                     
                     if(arrivle){
                         $(".arrivle").show();
                         $("#arrivle").show();
-                        $('#arrivle').html(data[2].value);   // arr;                               
+                        if(data[2].value){
+                            $('#arrivle').html(data[2].value);   // arr;                               
+                        }else{
+                            $('#arrivle').html("N/A");   // arr;
+                        }
                     }
 
                     if(gspeed){
@@ -77,9 +87,14 @@ function flightDate(URI){
                     }
                     
                     if(eteTime){
+                        $(".phaseTime").show();
                         $(".ete").show();
                         $("#ete").show();
-                        $('#ete').html(data[8].value);      // ete;                               
+                        if(data[8].value){
+                            $('#ete').html(data[8].value);      // ete;                               
+                        }else{
+                            $('#ete').html('00:00:00');      // ete;                               
+                        }
                     }    
                     
                     if(network){
@@ -89,9 +104,13 @@ function flightDate(URI){
                     }
                     
                     if(registration){
-                        $(".reg").show();
+                        $(".callsign").show();
                         $("#reg").show();
-                        $('#reg').html(data[10].value);     // registration;                               
+                        if(data[10].value){
+                            $('#reg').html(data[10].value);     // registration;                               
+                        }else{
+                            $('#reg').html("N/A");     // registration;                               
+                        }
                     }
 
                     if(atc){
@@ -101,14 +120,12 @@ function flightDate(URI){
                     }
 
                     if(phase){
+                        $(".phaseTime").show();
                         $(".phase").show();
                         $("#phase").show();
                         $('#phase').html(data[12].value);     // phase;
                     }
                     
-                    
-                    
-
                     console.log(data);
                 }else{
                     //show nice error "Sim is not connected"
@@ -125,12 +142,27 @@ function flightDate(URI){
 }
 
 
+function map(URI){
+    if(showmap){
+        $('.map').show();
+        $('.map').prepend(`<iframe class="iframe" src="${URI}" scrolling="no"></iframe>`);
+    }else{
+        $('.map').hide();
+    }
+}
+
 function progressBar(URI){
-    $('.flightData').prepend(`<iframe class="iframe" src="${URI}" scrolling="no"></iframe>`);
+    if(progressbar){
+        $('.progressbar').show();
+        $('.progressbar').prepend(`<iframe class="iframe" src="${URI}" scrolling="no"></iframe>`);
+    }else{
+        $('.progressbar').hide();
+    }
 }
 
 flightDate(SimToolKitProURI);
-progressBar(ProgressBar);
+progressBar(ProgressBarURI);
+map(mapURI);
 
 setInterval(function(){
     flightDate(SimToolKitProURI);

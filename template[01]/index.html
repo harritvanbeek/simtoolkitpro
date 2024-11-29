@@ -10,25 +10,52 @@
                 <div id="noConnection"></div>
             </div>
 
-            <div class="flightData">
-                <iframe class="iframe" src="http://localhost:51011/overlay" scrolling="no"></iframe>
-        
-                <ul>
-                    <li class="gspeed">Groud Speed :<span id="gspeed"></span> KTS</li>
-                    <li class="ias">Indicated AirSpeed : <span id="ias"></span> KTS</li>
-                    <li class="tas">true airspeed <span id="tas"></span> KTS</li>
-                    <li class="spd">Vertical speed <span id="spd"></span> fpm</li>
-                    <li class="altiude">Altiude <span id="altiude"></span> ft</li>
-                    <li class="ete">Time ETE <span id="ete"></span> </li>
-                    <li class="network">Network <span id="network"></span> </li>
-                    <li class="reg">Reg <span id="reg"></span> </li>
-                    <li class="atc">ATC <span id="atc"></span> </li>
-                    <li class="phase">Phase <span id="phase"></span> </li>
-                    <li class="departure">Departure <span id="departure"></span> </li>
-                    <li class="arrivle">Arrivle <span id="arrivle"></span> </li>
-                </ul>
+            <div class="flightData">                
+                <div class="network">
+                    <div class="flightInfo" id="network"></div>
+                    <div class="data">Network</div>
+                </div>
 
+             <div class="callsign">
+                <div class="flightInfo" id="reg"></div>
+                <div class="data">callsign</div>
+              </div>
+            
+                
+              <div class="departure">
+                <div class="flightInfo" id="departure"></div>
+                <div class="data">Departure</div>
+              </div>
+              
+              <div class="phaseTime">
+                 <div class="flightInfo phases" id="phase"></div>
+                 
+                 <!-- progressbar -->
+                  <div class="progressbar">progressbar</div>
+
+                 <div class="flightInfo time" id="ete"></div>
+              </div>
+
+
+              <div class="arrivle">
+                <div class="flightInfo" id="arrivle"></div>
+                <div class="data">Arrivle</div>
+              </div>
+
+              <div class="gspeed">
+                <div class="flightInfo" id="gspeed"></div>
+                <div class="data">Speed</div>
+              </div>
+
+
+              <div class="altiude">
+                <div class="flightInfo" id="altiude"></div>
+                <div class="data">Altiude (ft)</div>
+              </div>
             </div>
+
+
+            <div class="map"></div>
 
         </div>
 
