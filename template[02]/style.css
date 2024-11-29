@@ -1,0 +1,81 @@
+@font-face {
+  src: url("./assets/digital-7.regular.ttf");
+  font-family: "digital-clock-font";
+}
+body {
+  background-color: gray;
+}
+
+.profile {
+  z-index: 2;
+  position: absolute;
+  background-color: black;
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  border: 3px solid burlywood;
+  background-image: url("");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.flightDeck {
+  position: absolute;
+  left: 80px;
+  padding-left: 100px;
+  background-color: black;
+  width: 450px;
+  height: 100px;
+  border-radius: 10px;
+  border: 3px solid burlywood;
+}
+.flightDeck .departure {
+  position: absolute;
+  top: 20px;
+  width: 150px;
+}
+.flightDeck .arrivle {
+  position: absolute;
+  top: 20px;
+  width: 150px;
+  left: 250px;
+}
+.flightDeck .data {
+  color: #C69F5B;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+}
+.flightDeck .flightInfo {
+  font-family: "digital-clock-font";
+  font-size: xx-large;
+}
+.flightDeck .flightInfo ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+.flightDeck .flightInfo ul li {
+  padding: 2px;
+  margin-left: 3px;
+  background-color: #E2D8B5;
+  float: left;
+}
+.flightDeck .flightsData {
+  border-left: 1px gray solid;
+  padding-left: 35px;
+  position: absolute;
+  left: 400px;
+  top: 10px;
+}
+.flightDeck .flightsData .data {
+  font-size: 10pt;
+  font-style: italic;
+}
+.flightDeck .flightsData hr {
+  border: 1px solid burlywood;
+}
+.flightDeck .flightsData #atc, .flightDeck .flightsData #ete {
+  color: #E2D8B5;
+  font-size: 10pt;
+}

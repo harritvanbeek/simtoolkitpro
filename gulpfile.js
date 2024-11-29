@@ -14,11 +14,11 @@ import browserSync      from 'browser-sync';
 const sass              = gulpSass(dartSass);
        
         //styles
-var     styleDEV		=	"dev/scss/template[01].scss", /* changce here the name of your template file */
+var     styleDEV		=	"dev/scss/template[02].scss", /* changce here the name of your template file */
         styleWatch		=	"dev/scss/**/*.scss",
 		
         //Online folders
-		styleLOC		=	"./template[01]/"	 /* changce here the name of your template directory */	   
+		styleLOC		=	"./template[02]/"	 /* changce here the name of your template directory */	   
 		
 
 function browser_sync(){

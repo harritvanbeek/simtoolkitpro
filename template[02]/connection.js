@@ -1,0 +1,202 @@
+let Protocol        = "http"; //http protocal; you can change it to https if you using ssl; 
+let schemaURI       = "127.0.0.1"; //your local ip as default; 
+let schemaPORT      = "51011"; //portnuber as default;
+let refreshTime     = 200 // 200 milliseconds = 3 seconds 30000
+let noConnection    = "Sim is not connected!";
+
+let ShowError       =   true; //displays the noConnection as error
+let departure       =   true; //displays the departure
+let arrivle         =   true; //displays the arrivle
+let gspeed          =   false; //displays the ground speed
+let airspeed        =   false; //displays Indicated airspeed
+let trueairspeed    =   false; //displays True airspeed
+let verticalspeed   =   false; //displays Vertical speed
+let altiude         =   false; //displays altiude
+let eteTime         =   true; //displays ete Time
+let network         =   false; //displays network
+let registration    =   false; //displays registration
+let atc             =   true; //displays atc
+let phase           =   false; //displays phase
+let progressbar     =   false; //displays progressbar
+let showmap         =   false; //displays map
+
+/* DO NOT CHANGE THIS!! */
+let SimToolKitProURI = Protocol+"://"+schemaURI+":"+schemaPORT+"/simdata";
+let ProgressBarURI   = Protocol+"://"+schemaURI+":"+schemaPORT+"/overlay";
+let mapURI           = Protocol+"://"+schemaURI+":"+schemaPORT+"/map";
+
+function flightDate(URI){
+    $.ajax({
+        type: "GET" ,
+        url: URI ,        
+        dataType: "json" ,
+        success: function(data) {
+            if(data){
+                //chek sim connection
+                if(data[0].value !== "Not Connected"){
+                    $(".errorConnect").hide();
+                    
+                    if(departure){
+                        $(".departure").show();
+                        $("#departure").show();
+                        if(data[1].value){
+                            var departureData = data[1].value;
+                            departureData = departureData.split('');
+
+                            var text = '';
+                            for (let i = 0; i < departureData.length; i++) {
+                                text += '<li>'+  departureData[i] + '</li>';
+                            }
+                            $('#departure').html(text); // dep;                                
+                        }else{
+                            var departureData = "N/A";
+                            departureData = departureData.split('');
+
+                            var text = '';
+                            for (let i = 0; i < departureData.length; i++) {
+                                text += '<li>'+  departureData[i] + '</li>';
+                            }
+                            $('#departure').html(text); // dep;                                
+                        }
+                    }
+                    
+                    if(arrivle){
+                        $(".arrivle").show();
+                        $("#arrivle").show();
+                        if(data[2].value){
+                            var arrivleData = data[2].value;
+                            arrivleData = arrivleData.split('');
+
+                            var text = '';
+                            for (let i = 0; i < arrivleData.length; i++) {
+                                text += '<li>'+  arrivleData[i] + '</li>';
+                            }
+
+                            $('#arrivle').html(text);   // arr;                               
+                        }else{
+                            var arrivleData = "N/A";
+                            arrivleData = arrivleData.split('');
+
+                            var text = '';
+                            for (let i = 0; i < arrivleData.length; i++) {
+                                text += '<li>'+  arrivleData[i] + '</li>';
+                            }
+                            $('#arrivle').html(text);   // arr;
+                        }
+                    }
+
+                    if(gspeed){
+                        $(".gspeed").show();
+                        $("#gspeed").show();
+                        $('#gspeed').html(data[3].value);       // gspeed;                               
+                    }
+
+                    if(airspeed){
+                        $(".ias").show();
+                        $("#ias").show();
+                        $('#ias').html(data[4].value);       // Indicated airspeed;                               
+                    }
+
+                    if(trueairspeed){
+                        $(".tas").show();
+                        $("#tas").show();
+                        $('#tas').html(data[5].value);       // true airspeed;                               
+                    }    
+                    
+                    if(verticalspeed){
+                        $(".spd").show();
+                        $("#spd").show();
+                        $('#spd').html(data[6].value);       // verticalspeed;                               
+                    }  
+                    
+                    if(altiude){
+                        $(".altiude").show();
+                        $("#altiude").show();
+                        $('#altiude').html(data[7].value);  // altiude;                               
+                    }
+                    
+                    if(eteTime){
+                        $(".phaseTime").show();
+                        $(".ete").show();
+                        $("#ete").show();
+                        if(data[8].value){
+                            $('#ete').html(data[8].value);      // ete;                               
+                        }else{
+                            $('#ete').html('00:00:00');      // ete;                               
+                        }
+                    }    
+                    
+                    if(network){
+                        $(".network").show();
+                        $("#network").show();
+                        $('#network').html(data[9].value);      // network;                               
+                    }
+                    
+                    if(registration){
+                        $(".callsign").show();
+                        $("#reg").show();
+                        if(data[10].value){
+                            $('#reg').html(data[10].value);     // registration;                               
+                        }else{
+                            $('#reg').html("N/A");     // registration;                               
+                        }
+                    }
+
+                    if(atc){
+                        $(".atc").show();
+                        $("#atc").show();
+                        if(data[11].value){
+                            $('#atc').html(data[11].value);     // atc;                               
+                        }else{
+                            $('#atc').html("N/A");     // atc;                               
+                        }
+                    }
+
+                    if(phase){
+                        $(".phaseTime").show();
+                        $(".phase").show();
+                        $("#phase").show();
+                        $('#phase').html(data[12].value);     // phase;
+                    }
+                    
+                    //console.log(data);
+                }else{
+                    //show nice error "Sim is not connected"
+                    if(ShowError){
+                        $(".errorConnect").show();
+                        $("#noConnection").html(noConnection);
+                    }
+                    
+                    console.log(noConnection);
+                }                
+            }
+        }
+    });
+}
+
+
+function map(URI){
+    if(showmap){
+        $('.map').show();
+        $('.map').prepend(`<iframe class="iframe" src="${URI}" scrolling="no"></iframe>`);
+    }else{
+        $('.map').hide();
+    }
+}
+
+function progressBar(URI){
+    if(progressbar){
+        $('.progressbar').show();
+        $('.progressbar').prepend(`<iframe class="iframe" src="${URI}" scrolling="no"></iframe>`);
+    }else{
+        $('.progressbar').hide();
+    }
+}
+
+flightDate(SimToolKitProURI);
+progressBar(ProgressBarURI);
+map(mapURI);
+
+setInterval(function(){
+    flightDate(SimToolKitProURI);
+  }, refreshTime); 
