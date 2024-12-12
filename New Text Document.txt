@@ -1,0 +1,20 @@
+<div id="content">
+{% for layout in parts %}
+  {% if layout == "elements" %}
+  <div id="elems">
+    {% for item in elements %}
+    {% if item.enabled %}
+    <div class="element" style="opacity: {{ opacity }}">
+      {% if item.name %}<span class="element_name" style="border-left: 4px solid {{ colour }}">{{ item.name }}:</span>{% endif %}<span class="element_value">{{ item.value }} {{ item.suffix }}</span>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% if layout == "progress" %}
+  <div style="display: inline-block; margin-top: 2px; margin-bottom: 2px; height: 5px; width: 100%; background: #ccc">
+    <div id="prog" style="background: {{colour}}; width:{{progress}}%; height: 5px;"></div>
+  </div>
+  {% endif %}
+{% endfor %}
+</div>
