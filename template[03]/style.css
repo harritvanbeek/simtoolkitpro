@@ -1,0 +1,116 @@
+/*@font-face {
+  src: url("./assets/digital-7.regular.ttf");
+  font-family: "digital-clock-font";
+}*/
+
+@font-face {
+  src: url("./assets/SairaStencilOne-Regular.ttf");
+  font-family: "SairaStencilOne";
+}
+@font-face {
+  src: url("./assets/Roboto-Regular.ttf");
+  font-family: "Roboto_Regular";
+}
+@font-face {
+  src: url("./assets/Roboto-Bold.ttf");
+  font-family: "Roboto_Bold";
+}
+@font-face {
+  src: url("./assets/Quantico-Bold.ttf");
+  font-family: "Quantico";
+}
+
+ .profile {
+  z-index: 2;
+  position: absolute;
+  background-color: #144465;
+  /*height: 150px;
+  width: 150px;*/
+  height: 125px;
+  width:125px;
+  margin-left: 365px;
+  border-radius: 100px;
+  border: 3px solid #f8640a;
+  background-image: url("assets/avatar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.flightDeck {
+  position: absolute;
+  left: 80px;
+  padding-left: 20px;
+  margin-top: 10px;
+  background-color: #144465;
+  width: 600px;
+  height: 100px;
+  border-radius: 10px;
+  border: 3px solid #f8640a;
+}
+
+.flightDeck .departure {
+  position: absolute;
+  top: 20px;
+  width: 150px;
+}
+
+.flightDeck .arrivle {
+  position: absolute;
+  top: 20px;
+  width: 150px;
+  left: 160px;
+}
+
+.flightDeck .data {
+  color: #f8640a;
+  font-family: "Roboto_Bold";
+  font-weight: normal;
+}
+
+.flightDeck .flightInfo {
+  font-family: "Quantico";
+  font-size: 35px;
+  color: white;
+  padding: 0px;
+}
+
+.flightDeck .flightInfo ul {
+  list-style: none;
+  border: 1px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.flightDeck .flightInfo ul li {
+  padding-right: 2px;
+  float: left;
+}
+
+.flightDeck .flightsData {
+	/*border-left: 1px gray solid;*/
+	padding-left: 40px;
+  padding-right: 40px;
+  display: flex;
+  gap: 40px;
+  position: absolute;
+  left: 400px;
+  top: 5px;
+}
+
+.flightDeck .flightsData .data {
+  font-size: 12pt;
+  font-style: normal;
+  margin-right: 5px;
+  padding-bottom: 2px; /* Ruimte tussen tekst en lijntje */
+}
+
+.flightDeck .flightsData #phase, 
+.flightDeck .flightsData #ete, 
+.flightDeck .flightsData #altiude, 
+.flightDeck .flightsData #atc {
+  color: white;
+  font-family: "Roboto_Regular";
+  font-size: 12pt;
+  margin-bottom: 5px;
+}
